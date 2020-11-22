@@ -1,10 +1,9 @@
 from django.shortcuts import render, get_object_or_404, redirect
-from django.http import HttpResponse, HttpResponseRedirect, render
+from django.http import HttpResponse, HttpResponseRedirect
 from django.template import loader
 
-from post.models import Stream, Post, Tag, Likes, PostFileContent
+from post.models import Stream, Post, Likes, PostFileContent
 from post.forms import NewPostForm
-from stories.models import Story, StoryStream
 
 from comment.models import Comment
 from comment.forms import CommentForm
