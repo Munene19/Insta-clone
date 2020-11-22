@@ -1,7 +1,15 @@
-{% extends "base.html" %}
+{% extends 'base.html' %}
+
+{% load static %}
+{% load humanize %}
+
+{% block content %}
 
 
-{%block content%}
+  <div style="overflow-x: scroll;" class="columns">
+  <div class="columns is-mobile is-centered">
+  <div class="column is-half">
+
 {% for post_item in post_items %}
   <div class="card">
   <div class="card-image">
@@ -44,6 +52,7 @@
       {{ post_item.caption }}
       <p>{% for tag in post_item.tags.all %}<a href="{{ tag.get_absolute_url }}">#{{ tag }}</a>{% endfor %}</p>
       <br>
+      <strong><small>{{ post_item.posted | naturaltime }}</small></strong>
       </div>
     
 
@@ -62,4 +71,8 @@
 <br>
 
 {% endfor %}
+
+</div>
+</div>
+
 {% endblock %}
