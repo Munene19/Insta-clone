@@ -28,4 +28,7 @@ urlpatterns = [
     path('<username>/', UserProfile, name='profile'),
     path('<username>/follow/<option>', follow, name='follow'),
 
-] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+]
+
+urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+urlpatterns += static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
