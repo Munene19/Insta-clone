@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="{% static 'css/bulma.min.css' %}">
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons"rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/x.y.z/css/bulma.css">
   </head>
   <body>
 
@@ -20,56 +21,47 @@
                   <div class="card">
                       <div class="card-content">
                           <form method="post" action="" role="form">
-          {% csrf_token %}
-          <img src="{% static 'img/insta_icon.png' %}" width="44" height="84">
+                            {% csrf_token %}
+                            <img src="{% static 'img/icon.png' %}" width="44" height="54">   
+                            
+                            <h3 class="title is-3">Instagram-clone</h3>
+                            <h3 class="title is-3">Login</h3>
+                            <div class="field">
+                              <p class="control has-icons-left">
+                                <label class="label is-medium">Username</label>
+                                {{ form.username }}
+                              </p>
+                            </div>
+                            
+                            <div class="field">
+                              <p class="control has-icons-left">
+                                <label class="label is-medium">Password</label>
+                                {{ form.password }}
+                              </p>
+                            </div>
 
-          <h3 class="title is-3">Instagram-clone</h3>
+                                {% if form.errors %}
+                                  <div class="row">
+                                    <div class="col s12">
+                                      <span style="color: red; font-weight: bold;">Your username or password did not match.</span>
+                                    </div>
+                                  </div>
+                                {% endif %}
 
-           <h3 class="title is-3">Login</h3>
-
-            <div class="field">
-              <p class="control has-icons-left">
-              <label class="label is-medium">Username</label>
-                {{ form.username }}
-                <span class="icon is-small is-left">
-                    <i class="fas fa-lock"></i>
-                </span>
-            </p>
-        </div>
-
-              <div class="field">
-                  <p class="control has-icons-left">
-                      <label class="label is-medium">Password</label>
-                      {{ form.password }}
-                      <span class="icon is-small is-left">
-                          <i class="fas fa-lock"></i>
-                        </span>
-                    </p>
+                                    <div class="field">
+                                      <p class="control">
+                                        <button type="submit" value="login" class="button is-success">Login</button>
+                                      </p>
+                                    </div>
+                                    
+                                    <input type="hidden" name="next" value="{{ next }}">
+                                    <a href="{% url 'signup' %}" class="button is-info">Create an account</a>
+                            </form>
+                        </div>
+                      </div>
                 </div>
-
-      {% if form.errors %}
-      <div class="row">
-        <div class="col s12">
-          <span style="color: red; font-weight: bold;">Your username or password did not match.</span>
+            </div>
         </div>
-      </div>
-      {% endif %}
-
-      <div class="field">
-          <p class="control">
-              <button type="submit" value="login" class="button is-success">Login</button>
-            </p>
-        </div>
-        
-        <input type="hidden" name="next" value="{{ next }}">
-        <a href="{% url 'signup' %}" class="button is-info">Create an account</a>
-    </form>
-</div>
-</div>
-</div>
-</div>
-</div>
-</section>
-
-</body>
+  </section>
+  </body>
 </html>

@@ -5,7 +5,7 @@
 {% block content %}
 
 
-  <div style="overflow-x: scroll;" class="columns">
+  
   <div class="columns is-mobile is-centered">
   <div class="column is-half">
 
@@ -16,7 +16,7 @@
   {% if post_item.content.first.file.name|slice:"-3:" == 'jpg' or post_item.content.first.file.name|slice:"-3:" == 'png' %}
     <figure class="image is-5by3">
       <a href="{{ post_item.get_absolute_url }}">
-        <img src="{{ post_item.content.first.file.url }}" alt="Placeholder image">
+        <img src="{{ post_item.content.first.file.url }}" alt="Placeholder image" >
       </a>
     </figure>
   {% else %}
@@ -56,7 +56,7 @@
     
 
     <div class="media-right">
-      <a href="{% url 'postlike' post_item.id %}"><i class="material-icons has-text-danger">favorite</i></a>
+      <a href="{% url 'postlike' post_item.id %}"><i class="material-icons has-text-danger"></i></a>
       <p>{{ post_item.likes }} Likes</p>  
     </div>
 

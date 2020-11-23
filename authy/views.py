@@ -28,7 +28,7 @@ def UserProfile(request, username):
 	else:
 		posts = profile.favorites.all()
 
-	#Profile info box
+	#Profile info 
 	posts_count = Post.objects.filter(user=user).count()
 	following_count = Follow.objects.filter(follower=user).count()
 	followers_count = Follow.objects.filter(following=user).count()
@@ -55,11 +55,11 @@ def UserProfile(request, username):
 
 	return HttpResponse(template.render(context, request))
 
-# def UserProfileFavorites(request, username):
-# 	user = get_object_or_404(User, username=username)
-# 	profile = Profile.objects.get(user=user)
+def UserProfileFavorites(request, username):
+	user = get_object_or_404(User, username=username)
+	profile = Profile.objects.get(user=user)
 	
-# 	posts = profile.favorites.all()
+	posts = profile.favorites.all()
 
 	#Profile info box
 	posts_count = Post.objects.filter(user=user).count()
