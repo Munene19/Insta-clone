@@ -126,7 +126,7 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 STATICFILES_ROOT = [
-     os.path.join(BASE_DIR, "instagram/staticfiles/")
+     os.path.join(BASE_DIR, "instagram/static/")
 ]
 
 MEDIA_URL = '/media/'
