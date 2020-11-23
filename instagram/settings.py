@@ -25,7 +25,7 @@ SECRET_KEY = 'qbihc3gto+oc46mh$d*wqtumrf(&ocyr@8694boy*_mm9@x17x'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['thegramx.herokuapp.com']
 
 
 # Application definition
