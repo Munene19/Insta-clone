@@ -11,9 +11,6 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 """
 import os
 from pathlib import Path
-import django-heroku
-import dj-database-url
-from decouple import config,Csv
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -28,7 +25,7 @@ SECRET_KEY = 'qbihc3gto+oc46mh$d*wqtumrf(&ocyr@8694boy*_mm9@x17x'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['thegramx.herokuapp.com']
+ALLOWED_HOSTS = ['thegramx.herokuapp.com', '127.0.0.1']
 
 
 # Application definition
@@ -46,6 +43,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django_celery_beat',
+    'whitenoise.runserver_nostatic',
+    'django.contrib.staticfiles',
 ]
 
 MIDDLEWARE = [
@@ -82,6 +81,10 @@ WSGI_APPLICATION = 'instagram.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
+import django_heroku
+import dj_database_url
+from decouple import config,Csv
+
 
 MODE=config("MODE", default="dev")
 SECRET_KEY = config('SECRET_KEY')
