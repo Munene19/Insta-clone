@@ -43,8 +43,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django_celery_beat',
-    'whitenoise.runserver_nostatic',
-    'django.contrib.staticfiles',
+    'whitenoise.runserver_nostatic',   
 ]
 
 MIDDLEWARE = [
@@ -104,11 +103,9 @@ if config('MODE')=="dev":
    }
 # production
 else:
-   DATABASES = {
-       'default': dj_database_url.config(
-           default=config('DATABASE_URL')
-       )
-   }
+    os.environ.get('DATABASE_URL')
+    DATABASES = {'default': dj_database_url.config(default=os.environ.get('DATABASE_URL'))}
+   
 
 db_from_env = dj_database_url.config(conn_max_age=500)
 DATABASES['default'].update(db_from_env)
